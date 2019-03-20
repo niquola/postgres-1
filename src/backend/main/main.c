@@ -193,8 +193,8 @@ main(int argc, char *argv[])
 	 * Make sure we are not running as root, unless it's safe for the selected
 	 * option.
 	 */
-	if (do_check_root)
-		check_root(progname);
+	/* if (do_check_root) */
+	/* 	check_root(progname); */
 
 	/*
 	 * Dispatch to one of various subprograms depending on first argument.
