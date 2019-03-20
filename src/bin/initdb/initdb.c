@@ -661,16 +661,16 @@ get_id(void)
 	const char *username;
 
 #ifndef WIN32
-	if (geteuid() == 0)			/* 0 is root's uid */
-	{
-		fprintf(stderr,
-				_("%s: cannot be run as root\n"
-				  "Please log in (using, e.g., \"su\") as the "
-				  "(unprivileged) user that will\n"
-				  "own the server process.\n"),
-				progname);
-		exit(1);
-	}
+	/* if (geteuid() == 0)			/\* 0 is root's uid *\/ */
+	/* { */
+	/* 	fprintf(stderr, */
+	/* 			_("%s: cannot be run as root\n" */
+	/* 			  "Please log in (using, e.g., \"su\") as the " */
+	/* 			  "(unprivileged) user that will\n" */
+	/* 			  "own the server process.\n"), */
+	/* 			progname); */
+	/* 	exit(1); */
+	/* } */
 #endif
 
 	username = get_user_name_or_exit(progname);
