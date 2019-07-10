@@ -177,18 +177,18 @@ check_ssl_key_file_permissions(const char *ssl_key_file, bool isServerStart)
 	 * reasonable check to apply on Windows.  (See also the data directory
 	 * permission check in postmaster.c)
 	 */
-#if !defined(WIN32) && !defined(__CYGWIN__)
-	if ((buf.st_uid == geteuid() && buf.st_mode & (S_IRWXG | S_IRWXO)) ||
-		(buf.st_uid == 0 && buf.st_mode & (S_IWGRP | S_IXGRP | S_IRWXO)))
-	{
-		ereport(loglevel,
-				(errcode(ERRCODE_CONFIG_FILE_ERROR),
-				 errmsg("private key file \"%s\" has group or world access",
-						ssl_key_file),
-				 errdetail("File must have permissions u=rw (0600) or less if owned by the database user, or permissions u=rw,g=r (0640) or less if owned by root.")));
-		return false;
-	}
-#endif
+/* #if !defined(WIN32) && !defined(__CYGWIN__) */
+/* 	if ((buf.st_uid == geteuid() && buf.st_mode & (S_IRWXG | S_IRWXO)) || */
+/* 		(buf.st_uid == 0 && buf.st_mode & (S_IWGRP | S_IXGRP | S_IRWXO))) */
+/* 	{ */
+/* 		ereport(loglevel, */
+/* 				(errcode(ERRCODE_CONFIG_FILE_ERROR), */
+/* 				 errmsg("private key file \"%s\" has group or world access", */
+/* 						ssl_key_file), */
+/* 				 errdetail("File must have permissions u=rw (0600) or less if owned by the database user, or permissions u=rw,g=r (0640) or less if owned by root."))); */
+/* 		return false; */
+/* 	} */
+/* #endif */
 
 	return true;
 }
